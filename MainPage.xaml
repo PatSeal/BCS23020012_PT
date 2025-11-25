@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BCS23020012.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BackgroundColor="#101010">
+
+    <ScrollView>
+        <Grid Padding="0,20,0,20">
+
+            <!-- MAIN CARD -->
+            <Border
+                Margin="24,40,24,0"
+                BackgroundColor="#222222"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 24,24,0,0">
+
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,*"
+                      Padding="24,60,24,24">
+
+                    <!-- Artist Name + Dates -->
+                    <VerticalStackLayout Grid.Row="0"
+                                         Spacing="4"
+                                         HorizontalOptions="Center">
+                        <Label Text="Vincent van Gogh"
+                               TextColor="White"
+                               FontSize="26"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center" />
+
+                        <Label Text="Dutch, 1853 — 1890"
+                               TextColor="#B0B0B0"
+                               FontSize="14"
+                               HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+
+                    <!--Q2-->
+                    <toolkit:Expander Grid.Row="1"
+                                      Margin="0,16,0,0"
+                                      IsExpanded="False">
+
+                        <toolkit:Expander.Header>
+                            <Label TextColor="#DDDDDD"
+                                   HorizontalTextAlignment="Center"
+                                   FontSize="13"
+                                   LineBreakMode="TailTruncation">
+
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Was a Dutch Post-Impressionist painter..." TextColor="AntiqueWhite"/>
+                                        <Span Text="Read More"
+                                              TextColor="#F5B642"
+                                              FontAttributes="Bold" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+
+                            </Label>
+                        </toolkit:Expander.Header>
+
+                        <toolkit:Expander.Content>
+                            <Label Margin="0,4,0,0"
+                                   TextColor="#DDDDDD"
+                                   FontSize="13"
+                                   HorizontalTextAlignment="Center"
+                                   Text="Was a Dutch Post-Impressionist painter who is among the most famous and influential figures in Western art. In just over a decade he created more than 2,000 artworks, including around 860 oil paintings." />
+                        </toolkit:Expander.Content>
+
+                    </toolkit:Expander>
+
+                    <!-- STATS ROW -->
+                    <Grid Grid.Row="2"
+                          Margin="0,20,0,0"
+                          ColumnDefinitions="*,*,*,*"
+                          BackgroundColor="#2C2C2C"
+                          Padding="0,12">
+
+                        <VerticalStackLayout Grid.Column="0"
+                                             Spacing="2"
+                                             HorizontalOptions="Center">
+                            <Label Text="$7.5m"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   FontSize="14" />
+                            <Label Text="Record"
+                                   TextColor="#AAAAAA"
+                                   FontSize="11" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="1"
+                                             Spacing="2"
+                                             HorizontalOptions="Center">
+                            <Label Text="$3.5m"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   FontSize="14" />
+                            <Label Text="Average"
+                                   TextColor="#AAAAAA"
+                                   FontSize="11" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="2"
+                                             Spacing="2"
+                                             HorizontalOptions="Center">
+                            <Label Text="+598%"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   FontSize="14" />
+                            <Label Text="General"
+                                   TextColor="#AAAAAA"
+                                   FontSize="11" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="3"
+                                             Spacing="2"
+                                             HorizontalOptions="Center">
+                            <Label Text="12"
+                                   TextColor="White"
+                                   FontAttributes="Bold"
+                                   FontSize="14" />
+                            <Label Text="Items"
+                                   TextColor="#AAAAAA"
+                                   FontSize="11" />
+                        </VerticalStackLayout>
+
+                    </Grid>
+
+                    <!-- SECTION TITLE -->
+                    <Label Grid.Row="3"
+                           Margin="0,20,0,8"
+                           Text="Other Van Gogh Works"
+                           TextColor="White"
+                           FontSize="16"
+                           FontAttributes="Bold" />
+
+                    <!-- ARTWORK GRID -->
+                    <CollectionView Grid.Row="4"
+                                    x:Name="collectionView"
+                                    ItemsLayout="VerticalGrid,2"
+                                    SelectionMode="None">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <!-- ARTWORK CARD -->
+                                <Border Margin="4"
+                                        BackgroundColor="#2C2C2C"
+                                        StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 12">
+
+                                    <Grid RowDefinitions="*,Auto,Auto">
+
+                                        <Image Grid.Row="0"
+                                               Aspect="AspectFill"
+                                               HeightRequest="150"
+                                               Source="{Binding Image}" />
+
+                                        <Label Grid.Row="1"
+                                               Margin="8,6,8,0"
+                                               Text="{Binding Title}"
+                                               TextColor="White"
+                                               FontSize="13" />
+
+                                        <Label Grid.Row="2"
+                                               Margin="8,0,8,8"
+                                               Text="{Binding Price}"
+                                               TextColor="#BBBBBB"
+                                               FontSize="11" />
+
+                                    </Grid>
+
+                                </Border>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </Grid>
+            </Border>
+
+            <!--Q1-->
+            <Border
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                Margin="0,12,0,0"
+                BackgroundColor="#F5B642"
+                Stroke="#F5B642"
+                StrokeThickness="2"
+                WidthRequest="88"
+                HeightRequest="88"
+                StrokeShape="Ellipse"
+                ZIndex="10">
+
+                <Border BackgroundColor="#222222"
+                        Margin="3"
+                        StrokeThickness="0"
+                        StrokeShape="Ellipse">
+
+                    <Image Source="vincent.png"
+                           Aspect="AspectFill">
+                        <Image.Clip>
+                            <EllipseGeometry Center="40,40" RadiusX="40" RadiusY="40" />
+                        </Image.Clip>
+                    </Image>
+
+                </Border>
+
+            </Border>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
